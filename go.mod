@@ -1,4 +1,4 @@
-module github.com/sercanarga/go-twitter-added-profile-banner
+module github.com/sercanarga/go-twitter
 
 go 1.17
 
