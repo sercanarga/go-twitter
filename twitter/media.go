@@ -23,8 +23,8 @@ type MediaUploadPhotoParams struct {
 }
 
 func (s *MediaService) MediaUpload(params *MediaUploadPhotoParams) (*MediaUploadPhotoParams, *http.Response, error) {
-	user := new(User)
+	media := new(MediaUploadPhotoParams)
 	apiError := new(APIError)
-	resp, err := s.sling.New().Base("https://upload.twitter.com/1.1/media/").Post("upload.json").BodyForm(params).Receive(user, apiError)
-	return user, resp, relevantError(err, *apiError)
+	resp, err := s.sling.New().Base("https://upload.twitter.com/1.1/media/").Post("upload.json").BodyForm(params).Receive(media, apiError)
+	return media, resp, relevantError(err, *apiError)
 }
