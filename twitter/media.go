@@ -22,7 +22,7 @@ type MediaUploadPhotoParams struct {
 	Media []byte `url:"media,omitempty"`
 }
 
-func (s *MediaService) MediaUpload(params *MediaUploadPhotoParams) (*Media, *http.Response, error) {
+func (s *MediaService) MediaUpload(params *MediaUploadPhotoParams) (*MediaUploadPhotoParams, *http.Response, error) {
 	user := new(User)
 	apiError := new(APIError)
 	resp, err := s.sling.New().Base("https://upload.twitter.com/1.1/media/").Post("upload.json").BodyForm(params).Receive(user, apiError)
