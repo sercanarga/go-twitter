@@ -54,6 +54,10 @@ type AccountUpdateProfileBannerPhotoParams struct {
 	OffsetY int    `url:"offset_top,omitempty"`
 }
 
+type AccountUploadProfileBannerPhotoParams struct {
+	Media []byte `url:"media,omitempty"`
+}
+
 // UpdateProfile updates the account profile with specified fields and returns
 // the User.
 // Requires a user auth context.
@@ -69,5 +73,12 @@ func (s *AccountService) UpdateProfileBannerPhoto(params *AccountUpdateProfileBa
 	user := new(User)
 	apiError := new(APIError)
 	resp, err := s.sling.New().Post("update_profile_banner.json").QueryStruct(params).Receive(user, apiError)
+	return user, resp, relevantError(err, *apiError)
+}
+
+func (s *AccountService) UploadProfileBannerPhoto(params *AccountUploadProfileBannerPhotoParams) (*User, *http.Response, error) {
+	user := new(User)
+	apiError := new(APIError)
+	resp, err := s.sling.New().Post("media/upload.json").BodyForm(params).Receive(user, apiError)
 	return user, resp, relevantError(err, *apiError)
 }
