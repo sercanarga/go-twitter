@@ -1,4 +1,4 @@
-module github.com/sercanarga/go-twitter
+module github.com/sercanarga/go-twitter-modded
 
 go 1.17
 
