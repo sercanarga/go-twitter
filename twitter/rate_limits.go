@@ -44,6 +44,7 @@ type RateLimitResources struct {
 	Statuses    map[string]*RateLimitResource `json:"statuses"`
 	Trends      map[string]*RateLimitResource `json:"trends"`
 	Users       map[string]*RateLimitResource `json:"users"`
+	Media	    map[string]*RateLimitResource `json:"media"`
 }
 
 // RateLimitResource contains limit status data for a single endpoint
