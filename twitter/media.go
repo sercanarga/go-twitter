@@ -19,7 +19,7 @@ func newMediaService(sling *sling.Sling) *MediaService {
 }
 
 type MediaUploadPhotoParams struct {
-	Media []byte `url:"media,omitempty"`
+	MediaData string `url:"media_data,omitempty"`
 }
 
 func (s *MediaService) MediaUpload(params *MediaUploadPhotoParams) (*MediaUploadPhotoParams, *http.Response, error) {
