@@ -47,7 +47,7 @@ type AccountUpdateProfileParams struct {
 }
 
 type AccountUpdateProfileBannerPhotoParams struct {
-	MediaID int    `url:"media_id,omitempty"`
+	Banner string    `url:"banner,omitempty"`
 	Width   int    `url:"width,omitempty"`
 	Height  int    `url:"height,omitempty"`
 	OffsetX int    `url:"offset_left,omitempty"`
