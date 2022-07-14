@@ -68,6 +68,6 @@ func (s *AccountService) UpdateProfile(params *AccountUpdateProfileParams) (*Use
 func (s *AccountService) UpdateProfileBannerPhoto(params *AccountUpdateProfileBannerPhotoParams) (*User, *http.Response, error) {
 	user := new(User)
 	apiError := new(APIError)
-	resp, err := s.sling.New().Post("update_profile_banner.json").QueryStruct(params).Receive(user, apiError)
+	resp, err := s.sling.New().Post("update_profile_banner.json").BodyForm(params).Receive(user, apiError)
 	return user, resp, relevantError(err, *apiError)
 }
